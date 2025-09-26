@@ -39,8 +39,8 @@ public class FileCabinet implements Cabinet {
 
     @Override
     public List<Folder> findFoldersBySize(String size) {
-        if (!size.equals("SMALL") && !size.equals("MEDIUM") && !size.equals("LARGE")) {
-            throw new IllegalArgumentException("Niepoprawny rozmiar folderu: " + size);
+        if (size == null || (!size.equals("SMALL") && !size.equals("MEDIUM") && !size.equals("LARGE"))) {
+            throw new IllegalArgumentException("Entered invalid size: " + size);
         }
         List<Folder> result = new ArrayList<>();        
         List<Folder> allFolders = getAllFolders(folders);
