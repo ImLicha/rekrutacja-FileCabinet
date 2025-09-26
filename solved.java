@@ -28,7 +28,7 @@ public class FileCabinet implements Cabinet {
 
     @Override
     public Optional<Folder> findFolderByName(String name) {
-        if(name == null) return Optional.empty();
+        if(name == null) throw new IllegalArgumentException("Entered invalid name: " + name);
 
         List<Folder> allFolders = getAllFolders(folders);
         for (Folder folder : allFolders) {
